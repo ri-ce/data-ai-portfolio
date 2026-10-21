@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="大数据与人工智能项目作品集">
+  <title>数据与人工智能项目作品集</title>
+  <style>
+    :root {
+      --ink: #13253d;
+      --muted: #617184;
+      --paper: #f4f7fb;
+      --card: rgba(255, 255, 255, .92);
+      --line: #d9e3ee;
+      --data: #0b7d78;
+      --data-soft: #e0f5f1;
+      --ai: #6355d9;
+      --ai-soft: #eeebff;
+      --success: #087f59;
+      --success-soft: #e3f7ef;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 4% 2%, #d9f1ee 0, transparent 32rem),
+        radial-gradient(circle at 96% 18%, #e8e4ff 0, transparent 30rem),
+        var(--paper);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: var(--data); }
+    .shell {
+      width: min(1140px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 58px 0 76px;
+    }
+    .status {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 12px;
+      color: var(--success);
+      background: var(--success-soft);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .status::before {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      content: "";
+    }
+    h1 {
+      max-width: 940px;
+      margin: 20px 0 14px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -.05em;
+    }
+    .lead {
+      max-width: 790px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 42px 0 22px;
+    }
+    .metric, .project {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 14px 46px rgba(19, 37, 61, .07);
+      backdrop-filter: blur(12px);
+    }
+    .metric { padding: 22px; }
+    .metric strong {
+      display: block;
+      font-size: 31px;
+      letter-spacing: -.04em;
+    }
+    .metric span { color: var(--muted); font-size: 14px; }
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .project {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+    }
+    .tag {
+      align-self: flex-start;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .tag.data { color: var(--data); background: var(--data-soft); }
+    .tag.ai { color: var(--ai); background: var(--ai-soft); }
+    h2 {
+      margin: 18px 0 8px;
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+    .project > p { margin: 0; color: var(--muted); }
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 22px 0;
+    }
+    .facts div {
+      padding: 12px;
+      background: #f3f6fa;
+      border-radius: 12px;
+    }
+    .facts strong { display: block; font-size: 18px; }
+    .facts small { color: var(--muted); }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0 0 20px;
+    }
+    .flow span {
+      padding: 5px 9px;
+      color: var(--muted);
+      background: #f5f8fc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    .flow code {
+      color: #8290a2;
+      font-family: inherit;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 16px;
+      color: #fff;
+      background: var(--ink);
+      border-radius: 11px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .button.secondary {
+      color: var(--ink);
+      background: white;
+      border: 1px solid var(--line);
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .summary article {
+      padding: 24px;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .summary h3 { margin: 0 0 10px; font-size: 17px; }
+    .summary ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    .summary li + li { margin-top: 6px; }
+    .note {
+      margin-top: 24px;
+      padding: 22px 24px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, .66);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      font-size: 14px;
+    }
+    footer {
+      margin-top: 34px;
+      padding-top: 20px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+    footer a { margin-right: 14px; }
+    @media (max-width: 860px) {
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .projects, .summary { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 24px, 1140px); padding-top: 32px; }
+      .metrics, .facts { grid-template-columns: 1fr; }
+      .project { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="status">2 个完整项目 · 14 条自动化测试全部通过</div>
+    <h1>数据与智能应用<br>项目作品集</h1>
+    <p class="lead">
+      一个大数据工程项目和一个机器学习服务项目。两项实践均使用真实公开数据，
+      覆盖数据处理、质量检查、指标分析、模型训练、接口部署和自动化测试。
+    </p>
+
+    <section class="metrics" aria-label="作品集指标">
+      <div class="metric"><strong>347.5万</strong><span>出租车原始数据记录</span></div>
+      <div class="metric"><strong>7,043</strong><span>客户流失模型样本</span></div>
+      <div class="metric"><strong>84.14%</strong><span>客户流失模型 ROC-AUC</span></div>
+      <div class="metric"><strong>14 / 14</strong><span>自动化测试通过</span></div>
+    </section>
+
+    <section class="projects">
+      <article class="project">
+        <span class="tag data">大数据工程</span>
+        <h2>NYC Yellow Taxi<br>批处理数据流水线</h2>
+        <p>
+          使用 DuckDB 直接处理纽约市官方出租车 Parquet 数据，完成质量检查、
+          异常清洗、维度聚合与分析报告生成。
+        </p>
+        <div class="facts">
+          <div><strong>3,322,947</strong><small>有效记录</small></div>
+          <div><strong>95.62%</strong><small>数据保留率</small></div>
+          <div><strong>7</strong><small>流水线测试</small></div>
+        </div>
+        <div class="flow" aria-label="数据项目处理流程">
+          <span>公开 Parquet</span><code>→</code>
+          <span>质量检查</span><code>→</code>
+          <span>清洗聚合</span><code>→</code>
+          <span>结果表与报告</span>
+        </div>
+        <div class="actions">
+          <a class="button" href="https://ri-ce.github.io/nyc-taxi-data-pipeline/">项目详情</a>
+          <a class="button secondary" href="https://ri-ce.github.io/nyc-taxi-data-pipeline/test-report.html">测试报告</a>
+          <a class="button secondary" href="https://github.com/ri-ce/nyc-taxi-data-pipeline">源码</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="tag ai">人工智能工程</span>
+        <h2>Telco Customer Churn<br>机器学习预测服务</h2>
+        <p>
+          基于 IBM 公开客户数据完成特征工程、模型比较、模型持久化和在线预测接口，
+          重点识别潜在流失客户。
+        </p>
+        <div class="facts">
+          <div><strong>84.14%</strong><small>ROC-AUC</small></div>
+          <div><strong>78.34%</strong><small>Recall</small></div>
+          <div><strong>7</strong><small>模型与接口测试</small></div>
+        </div>
+        <div class="flow" aria-label="人工智能项目处理流程">
+          <span>客户数据</span><code>→</code>
+          <span>特征工程</span><code>→</code>
+          <span>模型比较</span><code>→</code>
+          <span>预测接口</span>
+        </div>
+        <div class="actions">
+          <a class="button" href="https://ri-ce.github.io/telco-churn-ml-service/">项目详情</a>
+          <a class="button secondary" href="https://ri-ce.github.io/telco-churn-ml-service/test-report.html">测试报告</a>
+          <a class="button secondary" href="https://github.com/ri-ce/telco-churn-ml-service">源码</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="summary">
+      <article>
+        <h3>大数据能力</h3>
+        <ul>
+          <li>Parquet 数据读取与 DuckDB SQL 分析</li>
+          <li>数据质量规则、异常清洗与保留率统计</li>
+          <li>日期、小时、支付方式和区域维度聚合</li>
+          <li>Parquet 结果表、JSON 指标与 HTML 报告</li>
+        </ul>
+      </article>
+      <article>
+        <h3>人工智能能力</h3>
+        <ul>
+          <li>缺失值处理、特征标准化与类别编码</li>
+          <li>五折分层交叉验证与模型比较</li>
+          <li>ROC-AUC、Recall、F1 与混淆矩阵评估</li>
+          <li>Pipeline 持久化和 FastAPI 预测接口</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="note">
+      两个项目分别存放在独立 GitHub 仓库中。数据均来自公开数据源，
+      页面展示的是个人数据处理、模型训练和工程实践，不代表企业生产项目。
+    </div>
+
+    <footer>
+      <a href="https://github.com/ri-ce/nyc-taxi-data-pipeline">大数据项目仓库</a>
+      <a href="https://github.com/ri-ce/telco-churn-ml-service">人工智能项目仓库</a>
+      <a href="https://github.com/ri-ce">GitHub 个人主页</a>
+    </footer>
+  </main>
+</body>
+</html>
